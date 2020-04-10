@@ -7,7 +7,6 @@
     <title>Project1</title>
     <!-- Compressed CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.6.3/css/foundation-float.min.css">
-
     <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -18,18 +17,25 @@
                 <h1>Pandemic Pantry</h1>
             </header>
         </div>
-
         <div class="columns medium-3">
-
-            <div class="input-group input-group-rounded">
-                <input class="input-group-field" type="search">
-                <div class="input-group-button">
-                    <input type="submit" class="button secondary" value="Search">
+            <form method="POST">
+                <div class="input-group input-group-rounded">
+                    <input class="input-group-field" type="search">
+                    <div class="input-group-button">
+                        <input type="submit" class="button secondary" value="Search">
+                    </div>
                 </div>
-            </div>
+                <div>
+                    <fieldset class="fieldset">
+                        <legend>Choices</legend>
+                        <input id="checkbox12" type="checkbox"><label for="checkbox12">Checkbox 1</label>
+                        <input id="checkbox22" type="checkbox"><label for="checkbox22">Checkbox 2</label>
+                        <input id="checkbox32" type="checkbox"><label for="checkbox32">Checkbox 3</label>
+                    </fieldset>
+                </div>
+            </form>
         </div>
-        <row class=" columns medium-9 feature">
-
+        <div class=" columns medium-9 feature">
             <div class="row">
                 <div class="medium-6 columns">
                     <h4>Item One</h4>
@@ -43,8 +49,6 @@
                     <p class="feature-ingrediets">Ingredients</p>
                     <p class="feature-recipe">recipe</p>
                 </div>
-
-
                 <div class="medium-6 columns">
                     <h4>Item Three</h4>
                     <img class="feature-image" src="https://placehold.it/75" alt="icon">
@@ -57,16 +61,10 @@
                     <p class="feature-ingrediets">Ingredients</p>
                     <p class="feature-recipe">recipe</p>
                 </div>
-
             </div>
+        </div>
     </div>
-
-
-
-
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="script.js"></script>
 </body>
-
 </html>
