@@ -17,8 +17,25 @@ function APIcall(keyword){
     method: "GET",
     })
     .then(function (response) {
+
+        var recipeName = response.results[0].title;
+        console.log(recipeName);
+        
+        var img = response.results[0].image;
+        var recipeImg = $("<img src=" + img + ">");
+        $("#photo").append(recipeImg);
+        
+
+        var instructions = response.results[0].analyzedInstructions;
+        console.log(instructions);
+        
+        var source = response.results[0].sourceUrl;
+        console.log(source);
+        
+
     console.log(response);
     });
 }
 
 APIcall("banana,cheese");
+
