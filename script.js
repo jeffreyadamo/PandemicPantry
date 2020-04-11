@@ -37,5 +37,4 @@ function APIcall(keyword){
     });
 }
 
-APIcall("banana,cheese");
-
+APIcall("chicken");

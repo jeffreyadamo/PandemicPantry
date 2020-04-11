@@ -31,4 +31,4 @@ jQuery, Font Awesome, Pure, Spoonacular
 --Event listeners for buttons
 --Display functions for returned information from API
 --Styling of returned information
-
+work in progress
