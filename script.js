@@ -94,4 +94,6 @@ function fetchRecipes(keyword, numberOfResults) {
 
 
 
-//"https://api.spoonacular.com/recipes/complexSearch?query=chicken&number=4&diet=vegan&addRecipeInformation=true&fillIngredients=true//&apiKey=74d82ee79a804056882eece5c8be4141";
+
+APIcall("chicken");
+
