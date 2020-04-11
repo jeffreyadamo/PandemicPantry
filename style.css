@@ -38,5 +38,9 @@ header {
   .feature-text {
     margin-bottom: 5px;
   }
+  .fieldset {
+    display: flex;
+    flex-direction: column;
+  }
   
   

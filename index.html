@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="wale=1.0">
     <title>Project1</title>
     <!-- Compressed CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.6.3/css/foundation-float.min.css">
@@ -18,9 +18,9 @@
             </header>
         </div>
         <div class="columns medium-3">
-            <form method="POST">
+            <form id="search">
                 <div class="input-group input-group-rounded">
-                    <input class="input-group-field" type="search">
+                    <input id="search-input" class="input-group-field" type="search">
                     <div class="input-group-button">
                         <input type="submit" class="button secondary" value="Search">
                     </div>
@@ -28,9 +28,9 @@
                 <div>
                     <fieldset class="fieldset">
                         <legend>Choices</legend>
-                        <input id="checkbox12" type="checkbox"><label for="checkbox12">Checkbox 1</label>
-                        <input id="checkbox22" type="checkbox"><label for="checkbox22">Checkbox 2</label>
-                        <input id="checkbox32" type="checkbox"><label for="checkbox32">Checkbox 3</label>
+                        <div><input name = "diet" value= "Vegan" class="diet-choice" type="radio"><label for="checkbox12">Vegan</label></div>
+                        <div><input name = "diet" value= "Vegetarian" class="diet-choice" type="radio"><label for="checkbox22">Vegetarian</label></div>
+                        <div><input name = "diet" value= "gluten free" class="diet-choice" type="radio"><label for="checkbox32">glutenFree</label></div>
                     </fieldset>
                 </div>
             </form>
