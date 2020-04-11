@@ -32,7 +32,9 @@ header {
   }
 
   .feature-image {
-    margin-bottom: 2px
+    margin-bottom: 2px;
+    max-width: 200px;
+    max-height: 200px;
   }
   
   .feature-text {
