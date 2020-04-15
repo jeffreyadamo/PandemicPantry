@@ -102,6 +102,10 @@ h1 {
   margin-top: 11%;
 }
 
+li {
+  text-align: left;
+}
+
 #footer{
   height: 50px;
   position: fixed;
