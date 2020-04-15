@@ -10,6 +10,7 @@
 }
 h1 {
   font-size: 75px;
+  font-family: 'Courgette', cursive;
   text-align: center;
   color: #fff;
 }
@@ -99,5 +100,16 @@ h1 {
   border-color: #1779ba transparent transparent;
   margin-left: 10px;
   margin-top: 11%;
+}
+
+#footer{
+  height: 50px;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  line-height: 50px;
+  color: #aaa;
+  text-align: center;
+  width: 100%;
 }
 
