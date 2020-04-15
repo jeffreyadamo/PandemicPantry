@@ -83,7 +83,8 @@ $("#search").on("submit", function(e){
     
 });
 
-//APIcall("chicken");
+//APIcall("chicken"); 
+
 
 var APIKey = "74d82ee79a804056882eece5c8be4141";
 
