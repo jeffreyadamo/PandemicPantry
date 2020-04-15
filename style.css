@@ -1,13 +1,18 @@
-header {
-    background-color: #86c9eb;
-    color: #fff;
-    padding: 1.5rem 0;
+.hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("bannerImage2.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;  
+    padding: 75px 0px 75px 0px;
     margin-bottom:20px;
-    line-height: 1;
-    text-align: center;
-    font-size: x-large;
-
-  }
+}
+h1 {
+  font-size: 75px;
+  text-align: center;
+  color: #fff;
+}
   
 .input-group-rounded .input-group-field {
   border-radius: 5000px 0 0 5000px;
@@ -45,8 +50,6 @@ header {
     flex-direction: column;
   }
   
-  
-
   .mega-menu .dropdown-pane {
     width: 100%;
     max-width: 85rem;
