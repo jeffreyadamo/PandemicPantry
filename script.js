@@ -5,10 +5,10 @@ $(".diet-choice").on("click", function() {
   console.log("diet is now " + diet);
 })
 
-APIcall("cookies");
+APIcall("tomatoes");
 //Test our API
 function APIcall(keyword){
-  var APIKey = "454a86eaeacb46388aa9439b5c0c474e";
+  var APIKey = "74d82ee79a804056882eece5c8be4141";
 
   //API query URL search criteria:
   //// Go to https://spoonacular.com/food-api/docs#Search-Recipes-Complex to see search criteria
@@ -42,43 +42,55 @@ function APIcall(keyword){
     })
     .then(function (response) {
         console.log(response);
+
+        for (x = 0; x < 4; x++) {
+          var cardDiv = $("<div class='medium-6 columns'>");
+          var nameEl = $("<h4 id='name'>");
+          var imgEl = $("<img class='feature-image'>");
+          var ingredientsDiv = $("<div class='feature-ingredients' id='ingredients'>");
+          var instructionsDiv = $("<div class='feature-recipe'>");
+          var sourceEl = $("<div>");
         
         //Puts the title on the recipe card
-        var recipeName = response.results[0].title;
-        $("#name1").append(recipeName);
-        
+        var recipeName = response.results[x].title;
+        nameEl.append(recipeName);
+        cardDiv.append(nameEl);
+                    
         //Adds image to the recipe card     
-        var img = response.results[0].image;
-        var recipeImg = $("#image1").attr("src", img);
-        $("#image1").append(recipeImg);
-        
+        var img = response.results[x].image;
+        imgEl.attr("src", img);
+        cardDiv.append(imgEl);
+           
         //Adds ingredients to the recipe card
-        var ingredientsDiv = $("#ingredients1").text("Ingredients: ");
-        //var ulIngredients = $("<ul>");
+        // var ingredientsDiv = $("#ingredients").text("Ingredients: ");
+        var ulIngredients = $("<ul>");
         
           for (i = 0; i < response.results[0].missedIngredients.length; i++) {
           var ingredients = response.results[0].missedIngredients[i].originalString;   
-          //ingredientsDiv.append(ingredients);          
-         // ulIngredients.append($("<li>").append(ingredients));
-         ingredientsDiv.append(ingredients);
-        }
-        //ingredientsDiv.append(ulIngredients);
+          ulIngredients.append($("<li>").append(ingredients));
+          }
+          ingredientsDiv.text("Ingredients: ");
+          ingredientsDiv.append(ulIngredients);
+          cardDiv.append(ingredientsDiv);
 
         //Adds instructions to the recipe card
-        var instructionsDiv = $("#instructions1").text("Instructions: ");
-        //var ulInstructions = $("<ul>");
+        var olInstructions = $("<ol>");
           for (j = 0; j < response.results[0].analyzedInstructions[0].steps.length; j++) {
           var instructions = response.results[0].analyzedInstructions[0].steps[j].step;
-          //ulInstructions.append($("<li>").append(instructions));
-          instructionsDiv.append(instructions);
+          olInstructions.append($("<li>").append(instructions));
         }
-        //instructionsDiv.append(ulInstructions);
+        instructionsDiv.text("Instructions: ");
+        instructionsDiv.append(olInstructions);
+        cardDiv.append(instructionsDiv);
         
         //Adds the source url to the recipe card
-        var source = response.results[0].sourceUrl;
-        //console.log(source);
+        var source = response.results[x].sourceUrl;
         var a1 = $("<a>").attr("href", source).text(source);
-        $("#source1").append(a1);
+        sourceEl.append(a1);
+        cardDiv.append(sourceEl);
+        $("#recipeCard").append(cardDiv);
+
+      }
  });
 }
 
@@ -86,20 +98,19 @@ function APIcall(keyword){
 $("#search").on("submit", function(e){
     e.preventDefault();
     keyword = $("#search-input").val();
-    var numberOfResults = 5;
+    var numberOfResults = 4;
 
 
-//     fetchRecipes(keyword, numberOfResults);
+    fetchRecipes(keyword, numberOfResults);
     
-// });
+});
 
 
-// APIcall("chicken");
 
 
-// var APIKey = "74d82ee79a804056882eece5c8be4141";
+var APIKey = "74d82ee79a804056882eece5c8be4141";
 
-// function fetchRecipes(keyword, numberOfResults) {
+function fetchRecipes(keyword, numberOfResults) {
 
 
     // var dietChoice = $("input[name='diet']:checked");
@@ -116,17 +127,17 @@ $("#search").on("submit", function(e){
 //     //         diet = $(diets[i]).text;
 //     //     }
 //     // }
-//     var queryURL =
-//     "https://api.spoonacular.com/recipes/complexSearch?query="+ keyword +"&number="+ numberOfResults + "&diet=" + diet + "&addRecipeInformation=true&fillIngredients=true&apiKey=" + APIKey;
-//     console.log(queryURL);
-//     $.ajax({
-//         url: queryURL,
-//         method: "GET",
-//     })
-//     .then(function(response){
-//         console.log(response);
+    var queryURL =
+    "https://api.spoonacular.com/recipes/complexSearch?query="+ keyword +"&number="+ numberOfResults + "&diet=" + diet + "&addRecipeInformation=true&fillIngredients=true&apiKey=" + APIKey;
+    console.log(queryURL);
+    $.ajax({
+        url: queryURL,
+        method: "GET",
+    })
+    .then(function(response){
+        console.log(response);
 
-//     });
+    });
 //     function updateRecipeItems(data) {
 //         var recipeItems = $(".medium-6");
 //         recipeItems.each(function(index, element){
@@ -139,7 +150,7 @@ $("#search").on("submit", function(e){
 //     }
 
 
-//}
+}
 
 
 
