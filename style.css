@@ -1,13 +1,19 @@
-header {
-    background-color: #86c9eb;
-    color: #fff;
-    padding: 1.5rem 0;
+.hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("bannerImage2.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;  
+    padding: 75px 0px 75px 0px;
     margin-bottom:20px;
-    line-height: 1;
-    text-align: center;
-    font-size: x-large;
-
-  }
+}
+h1 {
+  font-size: 75px;
+  font-family: 'Courgette', cursive;
+  text-align: center;
+  color: #fff;
+}
   
 .input-group-rounded .input-group-field {
   border-radius: 5000px 0 0 5000px;
@@ -45,8 +51,66 @@ header {
     flex-direction: column;
   }
   
+  .mega-menu .dropdown-pane {
+    width: 100%;
+    max-width: 85rem;
+    margin: 0 auto !important;
+    left: 0% !important;
+    right: 0% !important;
+  }
   
-li {
+  .mega-menu .menu {
+    background: none;
+  }
   
-  text-align: left;
+  .mega-menu > a::after {
+    display: block;
+    width: 0;
+    height: 0;
+    border: inset 6px;
+    content: '';
+    border-bottom-width: 0;
+    border-top-style: solid;
+    border-color: #1779ba transparent transparent;
+    margin-left: 10px;
+    margin-top: 11%;
+  }
+  
+  
+.mega-menu .dropdown-pane {
+  width: 100%;
+  max-width: 85rem;
+  margin: 0 auto !important;
+  left: 0% !important;
+  right: 0% !important;
 }
+
+.mega-menu .menu {
+  background: none;
+}
+
+.mega-menu > a::after {
+  display: block;
+  width: 0;
+  height: 0;
+  border: inset 6px;
+  content: '';
+  border-bottom-width: 0;
+  border-top-style: solid;
+  border-color: #1779ba transparent transparent;
+  margin-left: 10px;
+  margin-top: 11%;
+}
+
+#footer{
+  height: 50px;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  line-height: 50px;
+  color: #aaa;
+  text-align: center;
+  width: 100%;
+}
+
+
