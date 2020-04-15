@@ -1,19 +1,43 @@
+var keyword = "";
+var diet=
+$(".diet-choice").on("click", function() {
+  diet= ($(this).val());
+  console.log("diet is now " + diet);
+})
+
+APIcall("cookies");
 //Test our API
 function APIcall(keyword){
-    var APIKey = "454a86eaeacb46388aa9439b5c0c474e";
-    // var keyword = '';
-    var numberOfResults = 4;
-   
-    //Go to https://spoonacular.com/food-api/docs#Search-Recipes-Complex to see search criteria
-        //"&addRecipeInformation=true" includes a lot more info
-        //"&fillIngredients=true" Add info about the used and missing ingredients in each recipe
+  var APIKey = "454a86eaeacb46388aa9439b5c0c474e";
 
-    var queryURL =
-    "https://api.spoonacular.com/recipes/complexSearch?query="+ keyword +"&number="+ numberOfResults + "&addRecipeInformation=true&fillIngredients=true&apiKey=" + APIKey;
+  //API query URL search criteria:
+  //// Go to https://spoonacular.com/food-api/docs#Search-Recipes-Complex to see search criteria
+  var numberOfResults = 4;
+  var number = "&number=" + numberOfResults;
+  var addRecipeInformation = "&addRecipeInformation=true";
+  var fillIngredients = "&fillIngredients=true";
+  var diet = ""
+  var dietChoices = "&diet=" + diet;
+  var API = "&apiKey=" + APIKey;
 
-    //Setup AJAX call to Spoonacular API:
-    $.ajax({
-    url:queryURL,
+    //"&addRecipeInformation=true" includes a lot more info
+    //"&fillIngredients=true" Add info about the used and missing ingredients in each recipe
+    //"&diet=''"" allows to toggle from vegan, vegetarian, glutenFree
+
+  var queryURL = 
+  "https://api.spoonacular.com/recipes/complexSearch?query=" 
+    + keyword 
+    + number
+    + addRecipeInformation
+    + fillIngredients
+    + dietChoices
+    + API;
+
+    console.log("queryURL is " + queryURL);
+
+  //Setup AJAX call to Spoonacular API:
+  $.ajax({
+    url: queryURL,
     method: "GET",
     })
     .then(function (response) {
@@ -49,9 +73,10 @@ function APIcall(keyword){
         $("#source1").append(a1);
  });
 }
+
 $("#search").on("submit", function(e){
     e.preventDefault();
-    var keyword = $("#search-input").val();
+    keyword = $("#search-input").val();
     var numberOfResults = 5;
 
     fetchRecipes(keyword, numberOfResults);
@@ -64,10 +89,10 @@ var APIKey = "74d82ee79a804056882eece5c8be4141";
 
 function fetchRecipes(keyword, numberOfResults) {
 
-    var dietChoice = $("input[name='diet']:checked");
-    console.log(dietChoice);
-    var diet = $(dietChoice).val();
-    console.log(diet);
+    // var dietChoice = $("input[name='diet']:checked");
+    // console.log(dietChoice);
+    // var diet = $(dietChoice).val();
+    console.log("diet searched is " + diet + keyword);
 
    // console.log(diets);
     // var diet;
@@ -95,5 +120,5 @@ function fetchRecipes(keyword, numberOfResults) {
 
 
 
-APIcall("chicken");
+
 
