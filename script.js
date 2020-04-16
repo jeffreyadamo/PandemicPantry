@@ -1,11 +1,18 @@
 var keyword = "";
-var diet=
-$(".diet-choice").on("click", function() {
-  diet= ($(this).val());
-  console.log("diet is now " + diet);
-})
 
+//RADIO CHECKBOX
+var diet="";
+$(".diet-choice").on("click", function() {
+  diet = $("input[name='diet']:checked").val();
+  if(diet){
+    console.log("diet is now " + diet);
+    return diet;
+}})
+
+//////SILENCE APIcall TO SAVE OUR API KEY QUOTA/DAY///////////
 APIcall("tomatoes");
+//////////////////////////////////////////////////////////////
+
 //Test our API
 function APIcall(keyword){
   var APIKey = "74d82ee79a804056882eece5c8be4141";
