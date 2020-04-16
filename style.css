@@ -1,0 +1,120 @@
+.hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("bannerImage2.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;  
+    padding: 75px 0px 75px 0px;
+    margin-bottom:20px;
+}
+h1 {
+  font-size: 75px;
+  font-family: 'Courgette', cursive;
+  text-align: center;
+  color: #fff;
+}
+  
+.input-group-rounded .input-group-field {
+  border-radius: 5000px 0 0 5000px;
+  padding-left: 1rem;
+}
+
+.input-group-rounded .input-group-button .button {
+  border-radius: 0 5000px 5000px 0;
+  font-size: 0.8rem;
+}
+  input[type=text] {
+    width: 10%;
+    padding: 5px;
+    margin: 4px 0;    
+  } 
+
+  .feature {
+    text-align: center; 
+    margin-bottom: 5px;    
+    display: flex;
+    
+  }
+
+  .feature-image {
+    margin-bottom: 2px;
+    max-width: 200px;
+    max-height: 200px;
+  }
+  
+  .feature-text {
+    margin-bottom: 5px;
+  }
+  .fieldset {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .mega-menu .dropdown-pane {
+    width: 100%;
+    max-width: 85rem;
+    margin: 0 auto !important;
+    left: 0% !important;
+    right: 0% !important;
+  }
+  
+  .mega-menu .menu {
+    background: none;
+  }
+  
+  .mega-menu > a::after {
+    display: block;
+    width: 0;
+    height: 0;
+    border: inset 6px;
+    content: '';
+    border-bottom-width: 0;
+    border-top-style: solid;
+    border-color: #1779ba transparent transparent;
+    margin-left: 10px;
+    margin-top: 11%;
+  }
+  
+  
+.mega-menu .dropdown-pane {
+  width: 100%;
+  max-width: 85rem;
+  margin: 0 auto !important;
+  left: 0% !important;
+  right: 0% !important;
+}
+
+.mega-menu .menu {
+  background: none;
+}
+
+.mega-menu > a::after {
+  display: block;
+  width: 0;
+  height: 0;
+  border: inset 6px;
+  content: '';
+  border-bottom-width: 0;
+  border-top-style: solid;
+  border-color: #1779ba transparent transparent;
+  margin-left: 10px;
+  margin-top: 11%;
+}
+
+li {
+  text-align: left;
+}
+
+#footer{
+  height: 50px;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  line-height: 50px;
+  color: #aaa;
+  text-align: center;
+  width: 100%;
+}
+
+
