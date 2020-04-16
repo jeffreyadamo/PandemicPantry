@@ -94,41 +94,55 @@ function APIcall(keyword){
  });
 }
 
+////////////////////////////////////////////////////////////
 
+//Defining the intolerances for the search
+var  intolerances = [];
+
+//Listen for click, then if a checkbox is checked then push the value of the checkbox to the array "intolerances". HTML id's are named so they for loop will search for each checkbox in the class=fieldset2: 
+$(".fieldset2").click(function(){
+  intolerances = [];
+  for (i=0; i<12; i++){
+    if ($("#checkbox"+[i]).is(":checked")){
+      intolerances.push($("#checkbox"+[i]).val());
+    } 
+  }
+  console.log("intolerances are: " + intolerances.join());
+})
+
+//After hitting the search button:
 $("#search").on("submit", function(e){
-    e.preventDefault();
-    keyword = $("#search-input").val();
-    var numberOfResults = 4;
+  e.preventDefault();
+  keyword = $("#search-input").val();
+  var numberOfResults = 5;
 
-
-    fetchRecipes(keyword, numberOfResults);
-    
+  fetchRecipes(keyword, numberOfResults, intolerances);
 });
 
+function fetchRecipes(keyword, numberOfResults, intolerances) {
 
-
-
-var APIKey = "74d82ee79a804056882eece5c8be4141";
-
-function fetchRecipes(keyword, numberOfResults) {
-
-
-    // var dietChoice = $("input[name='diet']:checked");
-    // console.log(dietChoice);
-    // var diet = $(dietChoice).val();
-    console.log("diet searched is " + diet + keyword);
-
-
-//    // console.log(diets);
-//     // var diet;
-//     // for (var i = 0 ; i < diets.length; i++) {
-//     //     console.log(diets[i]);
-//     //     if (diets[i].checked) {
-//     //         diet = $(diets[i]).text;
-//     //     }
-//     // }
+  var APIKey = "74d82ee79a804056882eece5c8be4141";
+    
+    console.log("Search input includes" + diet +" "+ keyword + "with the following intolerances: " + intolerances);
+    var number = "&number=" + numberOfResults;
+    var addRecipeInformation = "&addRecipeInformation=true";
+    var fillIngredients = "&fillIngredients=true";
+    var dietChoices = "&diet=" + diet;
+    var getIntolerances = "&intolerances="+ intolerances;
+    console.log(getIntolerances);
+    var API = "&apiKey=" + APIKey;
+    
+    //Combine the variables into the query
     var queryURL =
-    "https://api.spoonacular.com/recipes/complexSearch?query="+ keyword +"&number="+ numberOfResults + "&diet=" + diet + "&addRecipeInformation=true&fillIngredients=true&apiKey=" + APIKey;
+    "https://api.spoonacular.com/recipes/complexSearch?query="
+      + keyword 
+      + number
+      + addRecipeInformation
+      + fillIngredients
+      + dietChoices
+      + getIntolerances
+      + API;
+      
     console.log(queryURL);
     $.ajax({
         url: queryURL,
@@ -138,6 +152,9 @@ function fetchRecipes(keyword, numberOfResults) {
         console.log(response);
 
     });
+  }
+    ///////////////////////////////////////////////////////////////
+
 //     function updateRecipeItems(data) {
 //         var recipeItems = $(".medium-6");
 //         recipeItems.each(function(index, element){
@@ -145,14 +162,7 @@ function fetchRecipes(keyword, numberOfResults) {
 //             element.find("h4").text(data[index].title);
 //             element.find("img").attr("src", data[index].image);
 //            // element.find(".feature-ingrediets").
-
 //         });
 //     }
-
-
-}
-
-
-
-
-
+//}
+///////////////////////////////////////////////////////////////////
