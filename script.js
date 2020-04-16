@@ -72,8 +72,8 @@ function APIcall(keyword){
         // var ingredientsDiv = $("#ingredients").text("Ingredients: ");
         var ulIngredients = $("<ul>");
         
-          for (i = 0; i < response.results[0].missedIngredients.length; i++) {
-          var ingredients = response.results[0].missedIngredients[i].originalString;   
+          for (i = 0; i < response.results[x].missedIngredients.length; i++) {
+          var ingredients = response.results[x].missedIngredients[i].originalString;   
           ulIngredients.append($("<li>").append(ingredients));
           }
           ingredientsDiv.text("Ingredients: ");
@@ -92,7 +92,7 @@ function APIcall(keyword){
         
         //Adds the source url to the recipe card
         var source = response.results[x].sourceUrl;
-        var a1 = $("<a>").attr("href", source).text(source);
+        var a1 = $("<a>").attr("href", source).text("Source");
         sourceEl.append(a1);
         cardDiv.append(sourceEl);
         $("#recipeCard").append(cardDiv);
