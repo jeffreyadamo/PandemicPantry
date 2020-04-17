@@ -43,6 +43,8 @@ $("#search").on("submit", function(e){
 
 function fetchRecipes(keyword, numberOfResults, intolerances) {
 
+  $("#recipeCard").empty();
+
   var APIKey = "74d82ee79a804056882eece5c8be4141";
     
     console.log("Search input includes" + diet +" "+ keyword + "with the following intolerances: " + intolerances);
@@ -105,15 +107,15 @@ function fetchRecipes(keyword, numberOfResults, intolerances) {
         ingredientsDiv.append(ulIngredients);
         cardDiv.append(ingredientsDiv);
 
-        //Adds instructions to the recipe card        
-          // var olInstructions = $("<ol>");
-        //   for (j = 0; j < response.results[x].analyzedInstructions[0].steps.length; j++) {
-        //   var instructions = response.results[x].analyzedInstructions[0].steps[j].step;
-        //   olInstructions.append($("<li>").append(instructions));
-        // }
-        // instructionsDiv.text("Instructions: ");
-        // instructionsDiv.append(olInstructions);
-        // cardDiv.append(instructionsDiv);
+        // Adds instructions to the recipe card        
+          var olInstructions = $("<ol>");
+          for (j = 0; j < response.results[x].analyzedInstructions[0].steps.length; j++) {
+          var instructions = response.results[x].analyzedInstructions[0].steps[j].step;
+          olInstructions.append($("<li>").append(instructions));
+        }
+        instructionsDiv.text("Instructions: ");
+        instructionsDiv.append(olInstructions);
+        cardDiv.append(instructionsDiv);
 
         //Adds the source url to the recipe card
         var source = response.results[x].sourceUrl;
