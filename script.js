@@ -96,16 +96,16 @@ function fetchRecipes(keyword, numberOfResults, intolerances) {
 
         //Adds ingredients to the recipe card
         // var ingredientsDiv = $("#ingredients").text("Ingredients: ");
-        var ulIngredients = $("<ul>");
+        // var ulIngredients = $("<ul>");
 
-          for (i = 0; i < response.results[x].missedIngredients.length; i++) {
-          var ingredients = response.results[x].missedIngredients[i].originalString;   
+        //   for (i = 0; i < response.results[x].missedIngredients.length; i++) {
+        //   var ingredients = response.results[x].missedIngredients[i].originalString;   
 
-          ulIngredients.append($("<li>").append(ingredients));
-        }
-        ingredientsDiv.text("Ingredients: ");
-        ingredientsDiv.append(ulIngredients);
-        cardDiv.append(ingredientsDiv);
+        //   ulIngredients.append($("<li>").append(ingredients));
+        // }
+        // ingredientsDiv.text("Ingredients: ");
+        // ingredientsDiv.append(ulIngredients);
+        // cardDiv.append(ingredientsDiv);
 
         // Adds instructions to the recipe card        
           var olInstructions = $("<ol>");
