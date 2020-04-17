@@ -1,9 +1,14 @@
 var keyword = "";
-var diet=
+
+//RADIO CHECKBOX
+var diet="";
 $(".diet-choice").on("click", function() {
-  diet= ($(this).val());
-  console.log("diet is now " + diet);
-})
+  diet = $("input[name='diet']:checked").val();
+  if(diet){
+    console.log("diet is now " + diet);
+    return diet;
+}})
+
 
 
 ////////////////////////////////////////////////////////////
