@@ -36,6 +36,8 @@ $(".intols").click(function(){
 $("#search").on("submit", function(e){
   e.preventDefault();
   keyword = $("#search-input").val();
+  $("#snippet").html("Ahh yes, yummy " + keyword + "...<br>"); //dynamically adds search keyword phrase over landing instructions
+  wikiAPI(keyword); //runs API call to Wikipedia
   var numberOfResults = 4;
 
   fetchRecipes(keyword, numberOfResults, intolerances);
@@ -127,7 +129,24 @@ function fetchRecipes(keyword, numberOfResults, intolerances) {
         cardDiv.append(sourceEl);
         $("#recipeCard").append(cardDiv);
       }
+      
     });
 }
 
+////////////SECOND SERVER-SIDE API WIKIPEDIA///////////
+function wikiAPI (keyword){
+var queryWikiURL = "https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&srsearch="+keyword+"&origin=*";
 
+$.ajax({
+  url: queryWikiURL,
+  method: "GET",
+})
+.then(function(response){
+  console.log(response);
+  console.log(response.query.search[0].snippet)
+  $("#snippet").append(response.query.search[0].snippet);
+  $("#snippet").append("...");
+  $("#snippet").append("<a href='https://en.wikipedia.org/wiki/"+keyword+"'>see more at Wikipedia</a>"); //links to source wiki page
+})
+}
+//////////////////////
