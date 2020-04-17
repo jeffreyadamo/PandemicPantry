@@ -119,3 +119,6 @@ li {
   font-size: 12px;
   line-height: normal;
 }
+.label {
+  border-radius: 5px;
+}
