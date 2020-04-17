@@ -51,6 +51,7 @@ function fetchRecipes(keyword, numberOfResults, intolerances) {
     var number = "&number=" + numberOfResults;
     var addRecipeInformation = "&addRecipeInformation=true";
     var fillIngredients = "&fillIngredients=true";
+    var instructionsCall = "&instructionsRequired=true";
     var dietChoices = "&diet=" + diet;
     var getIntolerances = "&intolerances="+ intolerances;
     console.log(getIntolerances);
@@ -64,6 +65,7 @@ function fetchRecipes(keyword, numberOfResults, intolerances) {
       + addRecipeInformation
       + fillIngredients
       + dietChoices
+      + instructionsCall
       + getIntolerances
       + API;
       
@@ -93,9 +95,9 @@ function fetchRecipes(keyword, numberOfResults, intolerances) {
         var img = response.results[x].image;
         imgEl.attr("src", img);
         cardDiv.append(imgEl);
+        
 
-        //Adds ingredients to the recipe card
-        // var ingredientsDiv = $("#ingredients").text("Ingredients: ");
+        // Adds ingredients to the recipe card
         var ulIngredients = $("<ul>");
 
           for (i = 0; i < response.results[x].missedIngredients.length; i++) {
@@ -109,10 +111,11 @@ function fetchRecipes(keyword, numberOfResults, intolerances) {
 
         // Adds instructions to the recipe card        
           var olInstructions = $("<ol>");
+
           for (j = 0; j < response.results[x].analyzedInstructions[0].steps.length; j++) {
           var instructions = response.results[x].analyzedInstructions[0].steps[j].step;
           olInstructions.append($("<li>").append(instructions));
-        }
+          }
         instructionsDiv.text("Instructions: ");
         instructionsDiv.append(olInstructions);
         cardDiv.append(instructionsDiv);
@@ -123,8 +126,6 @@ function fetchRecipes(keyword, numberOfResults, intolerances) {
         sourceEl.append(a1);
         cardDiv.append(sourceEl);
         $("#recipeCard").append(cardDiv);
-
-
       }
     });
 }
