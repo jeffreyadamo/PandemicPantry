@@ -9,8 +9,6 @@ $(".diet-choice").on("click", function() {
     return diet;
 }})
 
-
-
 ////////////////////////////////////////////////////////////
 
 //Defining the intolerances for the search
@@ -76,30 +74,32 @@ function fetchRecipes(keyword, numberOfResults, intolerances) {
           var instructionsDiv = $("<div class='feature-recipe'>");
           var sourceEl = $("<div>");
         
+
         //Puts the title on the recipe card
         var recipeName = response.results[x].title;
         nameEl.append(recipeName);
         cardDiv.append(nameEl);
-                    
+
         //Adds image to the recipe card     
         var img = response.results[x].image;
         imgEl.attr("src", img);
         cardDiv.append(imgEl);
-           
+
         //Adds ingredients to the recipe card
         // var ingredientsDiv = $("#ingredients").text("Ingredients: ");
         var ulIngredients = $("<ul>");
-        
+
           for (i = 0; i < response.results[x].missedIngredients.length; i++) {
           var ingredients = response.results[x].missedIngredients[i].originalString;   
-          ulIngredients.append($("<li>").append(ingredients));
-          }
-          ingredientsDiv.text("Ingredients: ");
-          ingredientsDiv.append(ulIngredients);
-          cardDiv.append(ingredientsDiv);
 
-        //Adds instructions to the recipe card
-        // var olInstructions = $("<ol>");
+          ulIngredients.append($("<li>").append(ingredients));
+        }
+        ingredientsDiv.text("Ingredients: ");
+        ingredientsDiv.append(ulIngredients);
+        cardDiv.append(ingredientsDiv);
+
+        //Adds instructions to the recipe card        
+          // var olInstructions = $("<ol>");
         //   for (j = 0; j < response.results[x].analyzedInstructions[0].steps.length; j++) {
         //   var instructions = response.results[x].analyzedInstructions[0].steps[j].step;
         //   olInstructions.append($("<li>").append(instructions));
@@ -107,7 +107,7 @@ function fetchRecipes(keyword, numberOfResults, intolerances) {
         // instructionsDiv.text("Instructions: ");
         // instructionsDiv.append(olInstructions);
         // cardDiv.append(instructionsDiv);
-        
+
         //Adds the source url to the recipe card
         var source = response.results[x].sourceUrl;
         var a1 = $("<a>").attr("href", source).text(source);
@@ -115,9 +115,9 @@ function fetchRecipes(keyword, numberOfResults, intolerances) {
         cardDiv.append(sourceEl);
         $("#recipeCard").append(cardDiv);
 
+
       }
- });
+    });
 }
 
-    
 
