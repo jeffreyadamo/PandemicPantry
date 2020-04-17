@@ -36,7 +36,7 @@
                     </fieldset>
                 </div>
                 <div>
-                    <fieldset class="fieldset2"> <!--Added all intolerances, added id and value-->
+                    <fieldset class="fieldset intols"> <!--Added all intolerances, added id and value-->
                         <legend>Intolerances</legend>
                         <div><input id="checkbox0" type="checkbox" value="dairy"><label for="checkbox0">Dairy</label></div>
                         <div><input id="checkbox1" type="checkbox" value="peanut"><label for="checkbox1">Peanut</label></div>
@@ -55,9 +55,9 @@
                 <div>
                     <fieldset class="fieldset">
                         <legend>PrepTime</legend>
-                        <div><input name = "cooktime" value= "25mins" class="cooktime-choice" type="radio"><label for="checkbox12">25mins</label></div>
-                        <div><input name = "cooktime" value= "35mins" class="cooktime-choice" type="radio"><label for="checkbox22">35mins</label></div>
-                        <div><input name = "cooktime" value= "45mins" class="cooktime-choice" type="radio"><label for="checkbox32">45mins</label></div>
+                        <div><input name = "cooktime" id="checkbox12" value= "25" class="cooktime-choice" type="radio"><label for="checkbox12">Under 25mins</label></div>
+                        <div><input name = "cooktime" id="checkbox22" value= "25-45" class="cooktime-choice" type="radio"><label for="checkbox22">25-45mins</label></div>
+                        <div><input name = "cooktime" id="checkbox32 "value= "45" class="cooktime-choice" type="radio"><label for="checkbox32">Over 45mins</label></div>
                     </fieldset>
                 </div>              
             </form>

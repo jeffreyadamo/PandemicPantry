@@ -1,12 +1,19 @@
 var keyword = "";
 
-//RADIO CHECKBOX
+//DIET CHOICES RADIO CHECKBOX
 var diet="";
 $(".diet-choice").on("click", function() {
   diet = $("input[name='diet']:checked").val();
   if(diet){
     console.log("diet is now " + diet);
-    return diet;
+}})
+
+//PREP TIME RADIO CHECKBOX
+var prepTime="";
+$(".cooktime-choice").on("click", function() {
+  prepTime = $("input[name='cooktime']:checked").val();
+  if(prepTime){
+    console.log("prepTime is now " + prepTime);
 }})
 
 ////////////////////////////////////////////////////////////
@@ -14,8 +21,8 @@ $(".diet-choice").on("click", function() {
 //Defining the intolerances for the search
 var  intolerances = [];
 
-//Listen for click, then if a checkbox is checked then push the value of the checkbox to the array "intolerances". HTML id's are named so they for loop will search for each checkbox in the class=fieldset2: 
-$(".fieldset2").click(function(){
+//Listen for click, then if a checkbox is checked then push the value of the checkbox to the array "intolerances". HTML id's are named so they for loop will search for each checkbox in the class=intols 
+$(".intols").click(function(){
   intolerances = [];
   for (i=0; i<12; i++){
     if ($("#checkbox"+[i]).is(":checked")){
@@ -67,7 +74,7 @@ function fetchRecipes(keyword, numberOfResults, intolerances) {
         console.log(response);
 
         for (x = 0; x < 4; x++) {
-          var cardDiv = $("<div class='medium-6 columns'>");
+          var cardDiv = $("<div class='medium-12 columns callout primary text-left'>");
           var nameEl = $("<h4 id='name'>");
           var imgEl = $("<img class='feature-image'>");
           var ingredientsDiv = $("<div class='feature-ingredients' id='ingredients'>");
