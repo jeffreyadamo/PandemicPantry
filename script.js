@@ -5,7 +5,7 @@ $(".diet-choice").on("click", function() {
   console.log("diet is now " + diet);
 })
 
-APIcall("tomatoes");
+// APIcall("tomatoes");
 //Test our API
 function APIcall(keyword){
   var APIKey = "74d82ee79a804056882eece5c8be4141";
@@ -75,8 +75,8 @@ function APIcall(keyword){
 
         //Adds instructions to the recipe card
         var olInstructions = $("<ol>");
-          for (j = 0; j < response.results[0].analyzedInstructions[0].steps.length; j++) {
-          var instructions = response.results[0].analyzedInstructions[0].steps[j].step;
+          for (j = 0; j < response.results[x].analyzedInstructions[0].steps.length; j++) {
+          var instructions = response.results[x].analyzedInstructions[0].steps[j].step;
           olInstructions.append($("<li>").append(instructions));
         }
         instructionsDiv.text("Instructions: ");
@@ -114,7 +114,7 @@ $(".fieldset2").click(function(){
 $("#search").on("submit", function(e){
   e.preventDefault();
   keyword = $("#search-input").val();
-  var numberOfResults = 5;
+  var numberOfResults = 4;
 
   fetchRecipes(keyword, numberOfResults, intolerances);
 });
@@ -151,18 +151,56 @@ function fetchRecipes(keyword, numberOfResults, intolerances) {
     .then(function(response){
         console.log(response);
 
-    });
-  }
-    ///////////////////////////////////////////////////////////////
+        for (x = 0; x < 4; x++) {
+          var cardDiv = $("<div class='medium-6 columns'>");
+          var nameEl = $("<h4 id='name'>");
+          var imgEl = $("<img class='feature-image'>");
+          var ingredientsDiv = $("<div class='feature-ingredients' id='ingredients'>");
+          var instructionsDiv = $("<div class='feature-recipe'>");
+          var sourceEl = $("<div>");
+        
+        //Puts the title on the recipe card
+        var recipeName = response.results[x].title;
+        nameEl.append(recipeName);
+        cardDiv.append(nameEl);
+                    
+        //Adds image to the recipe card     
+        var img = response.results[x].image;
+        imgEl.attr("src", img);
+        cardDiv.append(imgEl);
+           
+        //Adds ingredients to the recipe card
+        // var ingredientsDiv = $("#ingredients").text("Ingredients: ");
+        var ulIngredients = $("<ul>");
+        
+          for (i = 0; i < response.results[x].missedIngredients.length; i++) {
+          var ingredients = response.results[x].missedIngredients[i].originalString;   
+          ulIngredients.append($("<li>").append(ingredients));
+          }
+          ingredientsDiv.text("Ingredients: ");
+          ingredientsDiv.append(ulIngredients);
+          cardDiv.append(ingredientsDiv);
 
-//     function updateRecipeItems(data) {
-//         var recipeItems = $(".medium-6");
-//         recipeItems.each(function(index, element){
-//             var element = $(element);
-//             element.find("h4").text(data[index].title);
-//             element.find("img").attr("src", data[index].image);
-//            // element.find(".feature-ingrediets").
-//         });
-//     }
-//}
-///////////////////////////////////////////////////////////////////
+        //Adds instructions to the recipe card
+        // var olInstructions = $("<ol>");
+        //   for (j = 0; j < response.results[x].analyzedInstructions[0].steps.length; j++) {
+        //   var instructions = response.results[x].analyzedInstructions[0].steps[j].step;
+        //   olInstructions.append($("<li>").append(instructions));
+        // }
+        // instructionsDiv.text("Instructions: ");
+        // instructionsDiv.append(olInstructions);
+        // cardDiv.append(instructionsDiv);
+        
+        //Adds the source url to the recipe card
+        var source = response.results[x].sourceUrl;
+        var a1 = $("<a>").attr("href", source).text("Source");
+        sourceEl.append(a1);
+        cardDiv.append(sourceEl);
+        $("#recipeCard").append(cardDiv);
+
+      }
+ });
+}
+
+    
+
