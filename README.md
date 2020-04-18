@@ -3,6 +3,8 @@
 Group Five:  
 Jeffrey Adamo, Alyssa Hellrung, Bipin Maharjan
 
+[Presentation](https://docs.google.com/presentation/d/1uZGWMkWw4LRaYCs_ZFH-1DoOv6nIrZULHUeKNFdu0i8/edit#slide=id.g29f43f0a72_0_15)
+
 ## Description
 
 A web app that allows users to search for recipes based on an ingredient they have at home. Results can be tailored to fit dietary preferences and intolerances. 
