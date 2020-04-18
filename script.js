@@ -98,7 +98,6 @@ function fetchRecipes(keyword, numberOfResults, intolerances) {
         imgEl.attr("src", img);
         cardDiv.append(imgEl);
         
-
         // Adds ingredients to the recipe card
         var ulIngredients = $("<ul>");
 
@@ -124,12 +123,14 @@ function fetchRecipes(keyword, numberOfResults, intolerances) {
 
         //Adds the source url to the recipe card
         var source = response.results[x].sourceUrl;
+        if (source === "") {
+          var a1 = $("<a>").attr("href", "https://spoonacular.com")
+        } else {
         var a1 = $("<a>").attr("href", source).text(source);
         sourceEl.append(a1);
         cardDiv.append(sourceEl);
         $("#recipeCard").append(cardDiv);
-      }
-      
+      }}
     });
 }
 
