@@ -36,9 +36,11 @@ Spoonacular API
 ## Link to Deployed Webpage
 [Pandemic Pantry](https://jeffreyadamo.github.io/Project1/)
 
-## Screen Shots
-![landing page screenshot](./assets/firstShot.lnk)
-![large image after input](./assets/largeShot.lnk)
+## Landing Page
+![landing page screenshot](./assets/firstShot.png)
+
+## After Searching "Pasta"
+![large image after input](./assets/largeShot.png)
 
 ## Directions for Future Development
 Multiple keyword search  
