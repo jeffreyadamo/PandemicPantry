@@ -80,7 +80,7 @@ function fetchRecipes(keyword, numberOfResults, intolerances) {
         console.log(response);
 
         for (x = 0; x < 4; x++) {
-          var cardDiv = $("<div class='medium-12 columns callout primary text-left'>");
+          var cardDiv = $("<div class='cell shrink callout primary text-left'>");
           var nameEl = $("<h4 id='name'>");
           var imgEl = $("<img class='feature-image'>");
           var ingredientsDiv = $("<div class='feature-ingredients' id='ingredients'>");
