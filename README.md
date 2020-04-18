@@ -40,7 +40,7 @@ Spoonacular API
 ![landing page screenshot](./assets/firstShot.png)
 
 ## After Searching "Pasta"
-![large image after input](./assets/largeShot.png)
+![image](https://user-images.githubusercontent.com/57811605/79628762-c5fa9580-80f8-11ea-8ccd-c70c13897287.png)
 
 ## Directions for Future Development
 Multiple keyword search  
