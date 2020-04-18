@@ -1,34 +1,48 @@
-# Project1
+# Project 1: Pandemic Pantry
 
-Group Five Proposal: Project 1
+Group Five:  
 Jeffery Adamo, Alyssa Hellrung, Bipin Maharjan
-GitHub Repo: https://github.com/jeffreyadamo/Project1
 
-## Project Checklist
+## Description
 
-1) Project Title:
-    * Pandemic Pantry
+A web app that allows users to search for recipes based on an ingredient they have at home. Results can be tailored to fit dietary preferences and intolerances. 
 
-2) Project Description:
-    *  A web app that allows users to search for recipes based on ingredients on-hand, food preferences, and allergies. Search results will display several recipe options to choose from along with instructions and photographs.
+## User Story
 
+AS A person who wants to cook a meal with the limited ingredients I have at home,  
+I WANT to search for recipes using various criteria  
+SO THAT I can easily find something to make for dinner.
+ 
+## Acceptance Criteria
+GIVEN a recipe dashboard with form inputs  
+WHEN I enter an ingredient  
+THEN I am presented with a short description of the ingredient I entered as well as four recipe cards. Each recipe card contains the name of a recipe, a photo of the finished recipe, the remaining ingredients required, instructions, and a link to the recipe source.  
+WHEN I select from the set of DIETARY CHOICES presented in my search  
+THEN the resulting recipes are constrained to either vegan, vegetarian, gluten-free, or no constraints.  
+WHEN I select from a set of INTOLERANCES listed as checkboxes  
+THEN the resulting recipes will not contain any of the ingredients of the checkboxes selected.
 
-3) User story
-    As a person who wants to cook a meal with the limited ingredients I have, I want to search for recipes using various criteria so that I can easily find something to make for dinner.
+## Technologies Used
+Built in Visual Studio with  
+HTML  
+CSS  
+Javascript  
+jQuery  
+Easy Fonts  
+ZURB Foundation  
+MediaWiki API  
+Spoonacular API
 
+## Link to Deployed Webpage
+[Pandemic Pantry](https://jeffreyadamo.github.io/Project1/)
 
-4) Wireframe or sketch of the design
+## Landing Page
+![image](https://user-images.githubusercontent.com/57811605/79628786-06f2aa00-80f9-11ea-82fe-1c807108d6f2.png)
 
+## After Searching "Pasta"
+![image](https://user-images.githubusercontent.com/57811605/79628762-c5fa9580-80f8-11ea-8ccd-c70c13897287.png)
 
-5) APIs to be used
-jQuery, Font Awesome, Pure, Spoonacular
-
-
-6) Rough breakdown of tasks
---Design, layout, and styling of landing page.
---Input areas, search terms, submit buttons.
---API handling
---Event listeners for buttons
---Display functions for returned information from API
---Styling of returned information
-work in progress
+## Directions for Future Development
+Multiple keyword search  
+Search constraint based on preparation time  
+Ability to display more recipes (clear the ones presented and bring in four new cards)
