@@ -35,6 +35,9 @@ ZURB Foundation
 MediaWiki API  
 Spoonacular API
 
+## Demo
+![Demo](./assets/pandemicPantry.gif)
+
 ## Link to Deployed Webpage
 [Pandemic Pantry](https://jeffreyadamo.github.io/Project1/)
 
