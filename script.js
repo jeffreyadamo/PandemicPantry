@@ -98,6 +98,7 @@ function fetchRecipes(keyword, numberOfResults, intolerances) {
         imgEl.attr("src", img);
         cardDiv.append(imgEl);
         
+        
 
         // Adds ingredients to the recipe card
         var ulIngredients = $("<ul>");
