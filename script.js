@@ -9,12 +9,12 @@ $(".diet-choice").on("click", function() {
 }})
 
 //PREP TIME RADIO CHECKBOX
-var prepTime="";
-$(".cooktime-choice").on("click", function() {
-  prepTime = $("input[name='cooktime']:checked").val();
-  if(prepTime){
-    console.log("prepTime is now " + prepTime);
-}})
+// var prepTime="";
+// $(".cooktime-choice").on("click", function() {
+//   prepTime = $("input[name='cooktime']:checked").val();
+//   if(prepTime){
+//     console.log("prepTime is now " + prepTime);
+// }})
 
 ////////////////////////////////////////////////////////////
 
