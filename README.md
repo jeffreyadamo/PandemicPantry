@@ -1,7 +1,7 @@
 # Project 1: Pandemic Pantry
 
 Group Five:  
-Jeffery Adamo, Alyssa Hellrung, Bipin Maharjan
+Jeffrey Adamo, Alyssa Hellrung, Bipin Maharjan
 
 ## Description
 
