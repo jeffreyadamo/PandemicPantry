@@ -37,7 +37,7 @@ Spoonacular API
 [Pandemic Pantry](https://jeffreyadamo.github.io/Project1/)
 
 ## Landing Page
-![landing page screenshot](./assets/firstShot.png)
+![image](https://user-images.githubusercontent.com/57811605/79628786-06f2aa00-80f9-11ea-82fe-1c807108d6f2.png)
 
 ## After Searching "Pasta"
 ![image](https://user-images.githubusercontent.com/57811605/79628762-c5fa9580-80f8-11ea-8ccd-c70c13897287.png)
