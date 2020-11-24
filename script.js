@@ -38,7 +38,7 @@ $("#search").on("submit", function(e){
   keyword = $("#search-input").val();
   $("#snippet").html("Ahh yes, yummy " + keyword + "...<br>"); //dynamically adds search keyword phrase over landing instructions
   wikiAPI(keyword); //runs API call to Wikipedia
-  var numberOfResults = 4;
+  var numberOfResults = 99;
 
   fetchRecipes(keyword, numberOfResults, intolerances);
 });
@@ -79,7 +79,7 @@ function fetchRecipes(keyword, numberOfResults, intolerances) {
     .then(function(response){
         console.log(response);
 
-        for (x = 0; x < 4; x++) {
+        for (x = 0; x < 99; x++) {
           var cardDiv = $("<div class='cell shrink callout primary text-left'>");
           var nameEl = $("<h4 id='name'>");
           var imgEl = $("<img class='feature-image'>");

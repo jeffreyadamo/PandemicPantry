@@ -1,7 +1,9 @@
-# Project 1: Pandemic Pantry
+# [Project 1: Pandemic Pantry](https://jeffreyadamo.github.io/GroupProject1-PandemicPantry/)
 
 Group Five:  
-Jeffrey Adamo, Alyssa Hellrung, Bipin Maharjan
+Jeffrey Adamo, Alyssa Hellrung, Bipin Maharjan 
+
+[Pandemic Pantry on GitHub Pages](https://jeffreyadamo.github.io/GroupProject1-PandemicPantry/) 
 
 [Presentation](https://docs.google.com/presentation/d/1uZGWMkWw4LRaYCs_ZFH-1DoOv6nIrZULHUeKNFdu0i8/edit#slide=id.g29f43f0a72_0_15)
 
@@ -39,7 +41,7 @@ Spoonacular API
 ![Demo](./Assets/pandemicPantry.gif)
 
 ## Link to Deployed Webpage
-[Pandemic Pantry](https://jeffreyadamo.github.io/Project1/)
+[Pandemic Pantry](https://jeffreyadamo.github.io/GroupProject1-PandemicPantry/)
 
 ## Landing Page
 ![image](https://user-images.githubusercontent.com/57811605/79628786-06f2aa00-80f9-11ea-82fe-1c807108d6f2.png)
