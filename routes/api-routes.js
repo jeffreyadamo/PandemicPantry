@@ -1,12 +1,22 @@
 require("dotenv").config()
 var APIKey = process.env.API_KEY;
+let keyword = "";
+let intolerances = "";
+let diet = "";
 
 module.exports = function(app) {
-    app.get("/api/spoonacular/:keyword", (req, res) => {
-        const keyword = req.params.keyword;
-        const intolerances = req.params.intolerances;
-        console.log("keyword from req.params.keyword is " + keyword);
-        console.log("keyword from req.params.intolerances is " + intolerances)
+    app.get("/api/spoonacular/keywordId/:keyword/intolerancesId/:intolerances/dietId/:diet", (req, res) => {
+        console.log(req.body);
+        console.log(req.params);
+        keyword = req.params.keyword;
+        console.log(keyword);
+        intolerances = req.params.intolerances;
+        diet = req.params.diet;
+        console.log("keyword: " + keyword);
+        console.log("intolerances: " + intolerances);
+        console.log("diet: " + diet);
+
+        //TODO: API call with params
         res.json(req.params)
 
     });

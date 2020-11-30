@@ -41,14 +41,27 @@ $("#search").on("submit", function(event){
   wikiAPI(keyword); //runs API call to Wikipedia
   var numberOfResults = 99;
   fetchRecipes(keyword, numberOfResults, intolerances);
-  APIfetchRecipies(keyword, intolerances);
+  APIfetchRecipies(keyword, intolerances, diet);
 });
 
-function APIfetchRecipies(keyword, intolerances){
-  $.get("/api/spoonacular/" + keyword, data => {
-    console.log("API data:")
-    console.log(data)
-  })
+function APIfetchRecipies(keyword, intolerances, diet){
+  console.log("keyword: " + keyword);
+  console.log("intolerances: " + intolerances);
+  console.log(intolerances);
+  console.log("diet: " + diet);
+  console.log(diet);
+  if(!intolerances[0]){intolerances = "none"};
+  if(!diet){diet = "none"};
+  console.log("intolerances: " + intolerances);
+    $.get("/api/spoonacular/keywordId/" + keyword + "/intolerancesId/" + intolerances + "/dietId/" + diet
+      )
+      .then((response) => {
+        console.log("API data:")
+        console.log(response)
+      })
+      .catch((err) => { 
+        if (err) throw err}
+      )
 }
 
 function fetchRecipes(keyword, numberOfResults, intolerances) {
