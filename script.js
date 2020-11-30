@@ -1,3 +1,4 @@
+
 var keyword = "";
 
 //DIET CHOICES RADIO CHECKBOX
@@ -33,21 +34,30 @@ $(".intols").click(function(){
 })
 
 //After hitting the search button:
-$("#search").on("submit", function(e){
-  e.preventDefault();
-  keyword = $("#search-input").val();
+$("#search").on("submit", function(event){
+  event.preventDefault();
+  keyword = $("#search-input").val().trim();
   $("#snippet").html("Ahh yes, yummy " + keyword + "...<br>"); //dynamically adds search keyword phrase over landing instructions
   wikiAPI(keyword); //runs API call to Wikipedia
   var numberOfResults = 99;
-
   fetchRecipes(keyword, numberOfResults, intolerances);
+  APIfetchRecipies(keyword, intolerances);
 });
+
+function APIfetchRecipies(keyword, intolerances){
+  $.get("/api/spoonacular/" + keyword, data => {
+    console.log("API data:")
+    console.log(data)
+  })
+}
 
 function fetchRecipes(keyword, numberOfResults, intolerances) {
 
   $("#recipeCard").empty();
 
+  // TODO server render js instead of browser, move to api-routes.js
   var APIKey = "74d82ee79a804056882eece5c8be4141";
+  // console.log(APIKey);
     
     console.log("Search input includes" + diet +" "+ keyword + "with the following intolerances: " + intolerances);
     var number = "&number=" + numberOfResults;
