@@ -1,23 +1,43 @@
 require("dotenv").config()
-var APIKey = process.env.API_KEY;
-let keyword = "";
-let intolerances = "";
-let diet = "";
+const axios = require("axios");
+const number = "&number=99";
+const addRecipeInformation = "&addRecipeInformation=true";
+const fillIngredients = "&fillIngredients=true";
+const instructionsCall = "&instructionsRequired=true";
+const API = "&apiKey=" + process.env.API_KEY;
 
 module.exports = function(app) {
     app.get("/api/spoonacular/keywordId/:keyword/intolerancesId/:intolerances/dietId/:diet", (req, res) => {
-        console.log(req.body);
-        console.log(req.params);
-        keyword = req.params.keyword;
-        console.log(keyword);
-        intolerances = req.params.intolerances;
-        diet = req.params.diet;
-        console.log("keyword: " + keyword);
-        console.log("intolerances: " + intolerances);
-        console.log("diet: " + diet);
+        let keyword = req.params.keyword;
+        let intolerances = req.params.intolerances;
+        let diet = req.params.diet;
 
-        //TODO: API call with params
-        res.json(req.params)
+        if (intolerances === "none") {intolerances=""};
+        if (diet === "none") {diet=""};
 
+        let dietChoices = "&diet=" + diet;
+        let getIntolerances = "&intolerances="+ intolerances;
+
+        console.log("searching with " + [keyword, intolerances, diet])
+
+        let queryURL =
+          "https://api.spoonacular.com/recipes/complexSearch?query="
+            + keyword 
+            + number
+            + addRecipeInformation
+            + fillIngredients
+            + dietChoices
+            + instructionsCall
+            + getIntolerances
+            + API;
+
+        axios.get(queryURL)
+        .then(function (response){
+            console.log("response received " + response.data.results.length + " results")
+            res.send(response.data.results);
+        })
+        .catch(function (err) {
+            console.log(err);
+        });        
     });
 }

@@ -1,4 +1,3 @@
-
 var keyword = "";
 
 //DIET CHOICES RADIO CHECKBOX
@@ -36,11 +35,10 @@ $(".intols").click(function(){
 //After hitting the search button:
 $("#search").on("submit", function(event){
   event.preventDefault();
-  keyword = $("#search-input").val().trim();
-  $("#snippet").html("Ahh yes, yummy " + keyword + "...<br>"); //dynamically adds search keyword phrase over landing instructions
-  wikiAPI(keyword); //runs API call to Wikipedia
-  var numberOfResults = 99;
-  fetchRecipes(keyword, numberOfResults, intolerances);
+  keyword = $("#search-input").val();
+  $("#snippet").html("Ahh yes, yummy " + keyword + "...<br>");
+  console.log("Search input includes" + diet +" "+ keyword + "with the following intolerances: " + intolerances);
+  wikiAPI(keyword);
   APIfetchRecipies(keyword, intolerances, diet);
 });
 
@@ -56,121 +54,90 @@ function APIfetchRecipies(keyword, intolerances, diet){
     $.get("/api/spoonacular/keywordId/" + keyword + "/intolerancesId/" + intolerances + "/dietId/" + diet
       )
       .then((response) => {
-        console.log("API data:")
-        console.log(response)
+        // console.log("API data:")
+        // console.log(response)
+        renderRecipeCards(response)
+
       })
       .catch((err) => { 
         if (err) throw err}
       )
 }
 
-function fetchRecipes(keyword, numberOfResults, intolerances) {
-
+function renderRecipeCards(response) {
   $("#recipeCard").empty();
+  console.log("Response received from API side:");
+  console.log(response);
 
-  // TODO server render js instead of browser, move to api-routes.js
-  var APIKey = "74d82ee79a804056882eece5c8be4141";
-  // console.log(APIKey);
-    
-    console.log("Search input includes" + diet +" "+ keyword + "with the following intolerances: " + intolerances);
-    var number = "&number=" + numberOfResults;
-    var addRecipeInformation = "&addRecipeInformation=true";
-    var fillIngredients = "&fillIngredients=true";
-    var instructionsCall = "&instructionsRequired=true";
-    var dietChoices = "&diet=" + diet;
-    var getIntolerances = "&intolerances="+ intolerances;
-    console.log(getIntolerances);
-    var API = "&apiKey=" + APIKey;
-    
-    //Combine the variables into the query
-    var queryURL =
-    "https://api.spoonacular.com/recipes/complexSearch?query="
-      + keyword 
-      + number
-      + addRecipeInformation
-      + fillIngredients
-      + dietChoices
-      + instructionsCall
-      + getIntolerances
-      + API;
-      
-    console.log(queryURL);
-    $.ajax({
-        url: queryURL,
-        method: "GET",
-    })
-    .then(function(response){
-        console.log(response);
-
-        for (x = 0; x < 99; x++) {
-          var cardDiv = $("<div class='cell shrink callout primary text-left'>");
-          var nameEl = $("<h4 id='name'>");
-          var imgEl = $("<img class='feature-image'>");
-          var ingredientsDiv = $("<div class='feature-ingredients' id='ingredients'>");
-          var instructionsDiv = $("<div class='feature-recipe'>");
-          var sourceEl = $("<div>");
+    for (x = 0; x < 99; x++) {
+      var cardDiv = $("<div class='cell shrink callout primary text-left'>");
+      var nameEl = $("<h4 id='name'>");
+      var imgEl = $("<img class='feature-image'>");
+      var ingredientsDiv = $("<div class='feature-ingredients' id='ingredients'>");
+      var instructionsDiv = $("<div class='feature-recipe'>");
+      var sourceEl = $("<div>");
         
+      //Puts the title on the recipe card
+      var recipeName = response[x].title;
+      nameEl.append(recipeName);
+      cardDiv.append(nameEl);
 
-        //Puts the title on the recipe card
-        var recipeName = response.results[x].title;
-        nameEl.append(recipeName);
-        cardDiv.append(nameEl);
-
-        //Adds image to the recipe card     
-        var img = response.results[x].image;
-        imgEl.attr("src", img);
-        cardDiv.append(imgEl);
+      //Adds image to the recipe card     
+      var img = response[x].image;
+      imgEl.attr("src", img);
+      cardDiv.append(imgEl);
         
-        // Adds ingredients to the recipe card
-        var ulIngredients = $("<ul>");
+      // Adds ingredients to the recipe card
+      var ulIngredients = $("<ul>");
 
-          for (i = 0; i < response.results[x].missedIngredients.length; i++) {
-          var ingredients = response.results[x].missedIngredients[i].originalString;   
+      for (i = 0; i < response[x].missedIngredients.length; i++) {
+        var ingredients = response[x].missedIngredients[i].originalString;   
+        ulIngredients.append($("<li>").append(ingredients));
+      }
+      ingredientsDiv.text("Ingredients: ");
+      ingredientsDiv.append(ulIngredients);
+      cardDiv.append(ingredientsDiv);
 
-          ulIngredients.append($("<li>").append(ingredients));
+      // Adds instructions to the recipe card        
+      var olInstructions = $("<ol>");
+
+        for (j = 0; j < response[x].analyzedInstructions[0].steps.length; j++) {
+        var instructions = response[x].analyzedInstructions[0].steps[j].step;
+        olInstructions.append($("<li>").append(instructions));
         }
-        ingredientsDiv.text("Ingredients: ");
-        ingredientsDiv.append(ulIngredients);
-        cardDiv.append(ingredientsDiv);
-
-        // Adds instructions to the recipe card        
-          var olInstructions = $("<ol>");
-
-          for (j = 0; j < response.results[x].analyzedInstructions[0].steps.length; j++) {
-          var instructions = response.results[x].analyzedInstructions[0].steps[j].step;
-          olInstructions.append($("<li>").append(instructions));
-          }
-        instructionsDiv.text("Instructions: ");
-        instructionsDiv.append(olInstructions);
-        cardDiv.append(instructionsDiv);
+      instructionsDiv.text("Instructions: ");
+      instructionsDiv.append(olInstructions);
+      cardDiv.append(instructionsDiv);
 
         //Adds the source url to the recipe card
-        var source = response.results[x].sourceUrl;
-        if (source === "") {
-          var a1 = $("<a>").attr("href", "https://spoonacular.com")
-        } else {
-        var a1 = $("<a>").attr("href", source).text(source);
-        sourceEl.append(a1);
-        cardDiv.append(sourceEl);
-        $("#recipeCard").append(cardDiv);
-      }}
-    });
-}
+      var source = response[x].sourceUrl;
+      if (source === "") {
+        var a1 = $("<a>").attr("href", "https://spoonacular.com")
+      } else {
+      var a1 = $("<a>").attr("href", source).text(source);
+      sourceEl.append(a1);
+      cardDiv.append(sourceEl);
+      $("#recipeCard").append(cardDiv);
+    };
+  };
+};
 
-////////////SECOND SERVER-SIDE API WIKIPEDIA///////////
-function wikiAPI (keyword){
-var queryWikiURL = "https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&srsearch="+keyword+"&origin=*";
-
-$.ajax({
-  url: queryWikiURL,
-  method: "GET",
-})
-.then(function(response){
-  console.log(response);
-  console.log(response.query.search[0].snippet)
+//////////// WIKIPEDIA API ///////////
+function renderWikiSnippet(response){
   $("#snippet").append(response.query.search[0].snippet);
   $("#snippet").append("...");
-  $("#snippet").append("<a href='https://en.wikipedia.org/wiki/"+keyword+"'>see more at Wikipedia</a>"); //links to source wiki page
-})
+  $("#snippet").append("<a href='https://en.wikipedia.org/wiki/"+keyword+"'>see more at Wikipedia</a>"); 
 }
-//////////////////////
+
+function wikiAPI (keyword){
+  var queryWikiURL = "https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&srsearch="+keyword+"&origin=*";
+
+  $.ajax({
+    url: queryWikiURL,
+    method: "GET",
+  })
+  .then(function(response){
+    renderWikiSnippet(response);
+  });
+}
+/////////////////////////////////////
