@@ -3,7 +3,7 @@
 Group Five:  
 Jeffrey Adamo, Alyssa Hellrung, Bipin Maharjan 
 
-[Pandemic Pantry on GitHub Pages](https://jeffreyadamo.github.io/GroupProject1-PandemicPantry/) 
+[Pandemic Pantry on GitHub Pages](https://jeffreyadamo.github.io/PandemicPantry/) 
 
 [Presentation](https://docs.google.com/presentation/d/1uZGWMkWw4LRaYCs_ZFH-1DoOv6nIrZULHUeKNFdu0i8/edit#slide=id.g29f43f0a72_0_15)
 
