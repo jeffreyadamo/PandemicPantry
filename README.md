@@ -1,9 +1,12 @@
-# [Project 1: Pandemic Pantry](https://jeffreyadamo.github.io/GroupProject1-PandemicPantry/)
+# [Project 1: Pandemic Pantry](https://pandemic-pantry.herokuapp.com/) 
 
 Group Five:  
 Jeffrey Adamo, Alyssa Hellrung, Bipin Maharjan 
 
-[Pandemic Pantry on GitHub Pages](https://jeffreyadamo.github.io/PandemicPantry/) 
+Server-side deployment:  [Pandemic Pantry @ Heroku](https://pandemic-pantry.herokuapp.com/) 
+
+Browser-side deployment:  [Pandemic Pantry @ GitHub Pages](https://jeffreyadamo.github.io/PandemicPantry/) 
+
 
 [Presentation](https://docs.google.com/presentation/d/1uZGWMkWw4LRaYCs_ZFH-1DoOv6nIrZULHUeKNFdu0i8/edit#slide=id.g29f43f0a72_0_15)
 
@@ -41,7 +44,12 @@ Spoonacular API
 ![Demo](./Assets/pandemicPantry.gif)
 
 ## Link to Deployed Webpage
-[Pandemic Pantry](https://jeffreyadamo.github.io/GroupProject1-PandemicPantry/)
+
+Javascript rendered in the browser:
+[GitHub Pages](https://jeffreyadamo.github.io/PandemicPantry/)
+
+Server-side API calls version deployed at Heroku:  
+[https://pandemic-pantry.herokuapp.com/](https://pandemic-pantry.herokuapp.com/)
 
 ## Landing Page
 ![image](https://user-images.githubusercontent.com/57811605/79628786-06f2aa00-80f9-11ea-82fe-1c807108d6f2.png)
