@@ -2,11 +2,10 @@ var keyword = "";
 
 //DIET CHOICES RADIO CHECKBOX
 var diet="";
-$(".diet-choice").on("click", function() {
-  diet = $("input[name='diet']:checked").val();
-  if(diet){
-    console.log("diet is now " + diet);
-}})
+$(".diet-choice").on("click", function(data) {
+  console.log(data);
+  console.log(data.val())
+})
 
 //PREP TIME RADIO CHECKBOX
 // var prepTime="";
@@ -90,8 +89,17 @@ function renderRecipeCards(response) {
       // Adds ingredients to the recipe card
       var ulIngredients = $("<ul>");
 
-      for (i = 0; i < response[x].missedIngredients.length; i++) {
-        var ingredients = response[x].missedIngredients[i].originalString;   
+      // for (i = 0; i < response[x].missedIngredients.length; i++) {
+      //   var ingredients = response[x].missedIngredients[i].originalString;   
+      //   ulIngredients.append($("<li>").append(ingredients));
+      // }
+      // ingredientsDiv.text("Ingredients: ");
+      // ingredientsDiv.append(ulIngredients);
+      // cardDiv.append(ingredientsDiv);
+
+      // Fixing the ingredients
+      for (i = 0; i < response[x].extendedIngredients.length; i++) {
+        var ingredients = response[x].extendedIngredients[i].original;   
         ulIngredients.append($("<li>").append(ingredients));
       }
       ingredientsDiv.text("Ingredients: ");
